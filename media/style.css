@@ -1,0 +1,221 @@
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+body{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+    gap:20px;
+}
+
+.board{
+    width: 340px;
+    height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+}
+
+.word{
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+}
+.word div{
+    width: 60px;
+    height:60px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    background-color:rgba(255, 255, 255, 0.116);
+    color:rgba(255, 255, 255, 0.89);
+    border-radius: 3px;
+    border: 1px solid rgba(128, 128, 128, 0.321);
+}
+
+.word div:hover{
+    background-color: skyblue;
+    color: rgb(59, 72, 77);
+    cursor: pointer;
+}
+
+.buttons{
+    width: 700px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+button{
+    width: 45px;
+    height: 55px; 
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.1s ease-in-out;
+    color: var(--vscode-editor-foreground);
+    user-select: none;
+    outline:none;
+    border: 1px solid rgba(128, 128, 128, 0.321);
+    background-color:rgba(255, 255, 255, 0.114);
+}
+
+
+button:hover{
+    background-color:rgba(255, 255, 255, 0.296);
+}
+
+button:active{
+    transform: scale(0.9);
+}
+.incorrect{
+    background-color: rgb(114, 114, 114) !important;
+    animation: rotate 1.2s linear; 
+}
+
+.present{
+    background-color: rgba(214, 163, 52, 0.796) !important;
+    animation: rotate 1.2s linear; 
+}
+
+.correct{
+    background-color: rgb(86, 171, 86) !important;
+    animation: rotate 1.2s linear; 
+}
+
+
+
+.new{
+    display:none;
+    position:absolute;
+    top: 10px;
+    right:10px;
+    background-color: rgba(255, 255, 255, 0.116);
+    padding:15px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.new:hover{
+    background-color: rgb(60, 62, 65);
+}
+
+.new:active{
+    transform: scale(0.9);
+}
+
+.alert{
+    position:absolute;
+    background-color: rgb(38, 41, 47);
+    padding:20px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+    transform:scale(0);
+    border: 1px solid rgba(255, 255, 255, 0.138);
+    box-shadow: 0 0 200px 1000px rgba(255, 255, 255, 0.138);
+    display:flex;
+    align-items: center;
+}
+
+.active{
+    transform:scale(1);
+}
+#enter, #clear{
+    width:70px;
+    background-color: skyblue;
+    color: rgb(59, 72, 77);
+}
+
+
+
+
+@media screen and (max-width: 700px) {
+    body{
+        gap:40px;
+    }
+    h1{
+        font-size: 1.6rem;
+        transform:translateY(-30px)
+    }
+    .board{
+        width:300px;
+        height: 300px;
+        gap:5px;
+    }
+
+    .word div{
+        width:50px;
+        height:50px;
+    }
+
+    .buttons{
+        width:320px;
+        gap:5px;
+    }
+
+    button{
+        width:28px;
+        height:38px;
+        font-size: 0.8rem;
+        transition: 0.1s ease all;
+    }
+    #enter, #clear{
+        width:45px;
+    }
+}
+    
+@keyframes rotate {
+    0%{
+        transform:rotateX(0deg);
+    }
+    50%{
+        transform:rotateX(180deg);
+    }
+    100%{
+        transform:rotateX(0deg);
+    }
+}
+
+@keyframes scale {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.1);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+span{
+    font-size:32px;
+    color:lightgreen;
+    padding:10px;
+}
+
+.scale{
+    animation: scale 0.5s linear; 
+}
